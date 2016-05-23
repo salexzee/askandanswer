@@ -52,7 +52,7 @@ router.get('/question/:qId', (req, res, next) => {
 
 // Renders all questions GET /questions
 router.get('/questions', (req, res, next) => {
-  Question.find({ answered: false })
+  Question.find({ answered: true })
     .sort({ upvotes: 1 }).exec((err, questions) => {
     console.log(questions)
     res.render('questions', {
