@@ -5,7 +5,7 @@ block content
     h1 #{question.question}
     if question.answered === false
       form(method='post', action='/question/#{question.id}/post')
-        input(type='text', placeholder='Answer...', name='answer', id='answer', required, autofocus, pattern='.{5,}')
+        input(type='text', placeholder='Answer... 5+', name='answer', id='answer', required, autofocus, pattern='.{5,}')
         br
         input(type='submit')
     else
