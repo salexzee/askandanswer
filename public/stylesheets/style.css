@@ -10,10 +10,10 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: #eee;
+  background: white;
   border-bottom: 1px solid #aaa;
   border-top: 1px solid #aaa;
-  box-shadow: 0 5px 5px hsla(0, 0%, 0%, .1);
+  box-shadow: 0 2px 5px hsla(0, 0%, 0%, .1);
 
 }
 
@@ -69,10 +69,14 @@ form input[type=submit]:hover {
 }
 
 .index,
-.question-page,
-.questions-page {
+.question-page {
   text-align: center;
   padding-top: 70px;
+}
+
+.questions-page {
+  padding-top: 0;
+  text-align: center;
 }
 
 .index h1,
@@ -119,4 +123,19 @@ form input[type=submit]:hover {
   width: 90%;
   display: inline-block;
   margin: 0 auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  text-align: center;
+}
+
+footer a {
+  color: #79222A
 }
