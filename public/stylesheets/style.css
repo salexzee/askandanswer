@@ -1,8 +1,78 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: white;
+  color: #79222A;
 }
 
-a {
-  color: #00B7FF;
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  color: #79222A;
+  transition: .2s;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: red;
+}
+
+nav ul {
+  padding-left: 0;
+  text-align: center;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 25px;
+  font-weight: bold;
+}
+
+form input[type=text] {
+  width: 50%;
+  text-align: center;
+  font-size: 3em;
+  color: #C9727A;
+  padding: 20px 0;
+  outline: none;
+  border: 2px solid #C9727A;
+  background: #eee;
+  border-radius: 10px;
+}
+
+form input[type=submit] {
+  width: 30%;
+  font-size: 2.5em;
+  border: 2px solid #C9727A;
+  margin-top: 20px;
+  background: #eee;
+  color: #444;
+  transition: background .2s;
+  padding: 15px 0;
+  border-radius: 10px;
+}
+
+form input[type=submit]:hover {
+  background: #f9A2AA;
+  color: #444;
+}
+
+.index,
+.question-page {
+  text-align: center;
+  padding-top: 70px;
+}
+
+.index h1,
+.question-page h1 {
+  font-size: 5em;
+  margin-bottom: 15px;
 }

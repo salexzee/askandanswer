@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  h1 Ask a question...
-  
-  form(method='post', action='/post' id='ask')
-    input(type='text' name='questionInput', id='questionInput', required, autofocus, pattern='.{5,}')
-    input(type='submit')
+  .index
+    h1 Ask a Question
+    
+    form(method='post', action='/post' id='ask')
+      input(type='text' name='questionInput', id='questionInput', required, autofocus, pattern='.{5,}')
+      br
+      input(type='submit')
