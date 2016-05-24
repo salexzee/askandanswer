@@ -48,7 +48,7 @@ router.get('/question/:id', (req, res, next) => {
 router.get('/question', (req, res, next) => {
   Question.find({ answered: false }, (err, questions) => {
     if(err) throw err
-    if(questions.count > 1) {
+    if(questions.count > 0) {
       var q = dbHelper.getQuestion(questions)
       res.redirect('/question/' + q.id)
     } else {
