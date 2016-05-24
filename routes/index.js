@@ -48,13 +48,11 @@ router.get('/question/:id', (req, res, next) => {
 router.get('/question', (req, res, next) => {
   Question.find({ answered: false }, (err, questions) => {
     if(err) throw err
-    if(questions.length > 0) {
+    if(questions.count > 1) {
       var q = dbHelper.getQuestion(questions)
-    }
-    if (q.question === undefined) {
-      res.redirect('/')
-    } else {
       res.redirect('/question/' + q.id)
+    } else {
+      res.render('noquestions')
     }
   })
 })

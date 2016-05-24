@@ -11,7 +11,10 @@ nav {
   top: 0;
   left: 0;
   background: #eee;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+  box-shadow: 0 5px 5px hsla(0, 0%, 0%, .1);
+
 }
 
 nav a {
@@ -113,4 +116,7 @@ form input[type=submit]:hover {
 
 .questions-page .question ul li {
   list-style: none;
+  width: 90%;
+  display: inline-block;
+  margin: 0 auto;
 }
