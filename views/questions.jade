@@ -1,10 +1,12 @@
 extends layout
 
 block content
-
-  ul
-    if questions[0]
-      li 
-        ul 
-          li #{questions[0].question}
-          li #{questions[0].answer}
+  .questions-page
+    h1 Answered Questions
+    
+    each q in questions
+      .question
+        a(href="/question/#{q.id}")
+          ul
+            li Q: #{q.question}
+            li A: #{q.answer}
