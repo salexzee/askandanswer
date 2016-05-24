@@ -14,8 +14,7 @@ const questionSchema = mongoose.Schema({
   answer: String,
   answered: Boolean,
   upvotes: Number,
-  downvotes: Number,
-  qId: Number
+  downvotes: Number
 })
 
 const Question = mongoose.model('Question', questionSchema)

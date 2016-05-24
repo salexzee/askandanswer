@@ -12,41 +12,50 @@ router.get('/', (req, res, next) => {
 
 /* Creates new question and redirects to that question page */
 router.post('/post', (req, res, next) => {
-  let question = new Question({
-    question: req.body.questionInput,
-    answer: '',
-    answered: false,
-    upvotes: 0,
-    downvotes: 0,
-    qId: dbHelper.randomId()
-  })
-
+  let question = dbHelper.createQuestion(req.body.questionInput)
   question.save((err, question) => {
     if (err) return console.error(err)
-    console.log(question)
+    res.redirect('/question/' + question.id)
   })
-
-  res.render('index')
 })
 
 // Updates the answer for a question on POST /question/:qId/post
-router.post('/question/:qId/post', (req, res, next) => {
-  let question = Question.findOne({
-    'qId': req.params.qId
+router.post('/question/:id/post', (req, res, next) => {
+  Question.findOneAndUpdate({
+    '_id': req.params.id,
+    'answered': false
+  }, {
+    answer: req.body.answer,
+    answered: true
+  }, (err, question) => {
+    if (err) throw err
+    res.redirect('/question/' + question.id)
   })
-  if (question.answered === true) {
-    res.redirect('/')
-    return
-  }
 })
 
 // Renders a specific question on GET /question/:qId
-router.get('/question/:qId', (req, res, next) => {
-  let question = Question.findOne({
-    'qId': req.params.qId
+router.get('/question/:id', (req, res, next) => {
+  Question.findOne({
+    '_id': req.params.id
+  }, (err, question) => {
+    if (err) throw err
+    res.render('question', {
+      question: question
+    })
   })
-  res.render('question', {
-    question: question
+})
+
+router.get('/question', (req, res, next) => {
+  Question.find({ answered: false }, (err, questions) => {
+    if(err) throw err
+    if(questions.length > 0) {
+      var q = dbHelper.getQuestion(questions)
+    }
+    if (q.question === undefined) {
+      res.redirect('/')
+    } else {
+      res.redirect('/question/' + q.id)
+    }
   })
 })
 

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+
+  h1 #{question.question}
+  if question.answered === false
+    form(method='post', action='/question/#{question.id}/post')
+      input(type='text', placeholder='Answer...', name='answer', id='answer')
+      input(type='submit')
+  else
+    h2 #{question.answer}
